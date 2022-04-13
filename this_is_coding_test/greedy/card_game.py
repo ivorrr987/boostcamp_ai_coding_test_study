@@ -1,4 +1,5 @@
 # '이것이 코딩테스트다' p96
+# '카드 게임'
 
 # 숫자가 쓰인 카드들이 N x M 형태로 놓여있다. N은 행의 개수, M은 열의 개수.
 # 행을 먼저 선택.
@@ -19,4 +20,11 @@ def solution():
 
     return max(nums)
 
-print(solution())
+def solution2(input):
+    input = input.split("\n")
+    input[0] = input[0].split()
+    n, m = list(map(int, input[0]))
+    rows = [list(map(int, row.split())) for row in input[1:]]
+    nums = [min(row) for row in rows]
+
+    return max(nums)

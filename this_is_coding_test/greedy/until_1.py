@@ -1,4 +1,5 @@
 # '이코테' p99
+# '1이 될 때까지'
 
 # 어떠한 수 N에 대해 1이 될 때까지 다음의 두 과정 중 하나를 반복적으로 선택하여 수행
 # 1. N = N-1
@@ -24,4 +25,27 @@ def solution():
             # print(f"n={n}, cnt={cnt}")
 
     return cnt
-print(solution())
+def solution2(input):
+    n, k = list(map(int, input.split()))
+
+    cnt=0
+    while n > 1:
+        if n >= k:
+            if n % k == 0:
+                cnt += 1
+                n = n // k
+                # print(f"n={n}, cnt={cnt}")
+            else:
+                cnt += n % k
+                n -= n % k
+                # print(f"n={n}, cnt={cnt}")
+        else:
+            cnt += 1
+            n -= 1
+
+    return cnt
+
+if __name__ == '__main__':
+    print("hello")
+    input1 = '25 5'
+    print(solution2(input1))
